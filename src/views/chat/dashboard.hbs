@@ -1,0 +1,31 @@
+<div>
+  <h1 class="text-center">Chat dashboard</h1>
+  {{#if message}}
+  <div class="alert alert-danger">
+    <p>{{message}}</p>
+  </div>
+  {{/if}}
+  <p>Crear nueva sala</p>
+  <form action="/create-room" method="post" id="create-room-form">
+    <div class="input-group mb-3">
+      <input id="new-room-name" type="text" class="form-control" placeholder="Nueva sala de chat" name="room_name" aria-label="Nueva sala de chat" aria-describedby="btn-creare-room">
+      <input style="display: none;" type="text" id="create-room-user-id" name="user_id">
+      <button class="btn btn-outline-secondary" type="submit" id="btn-creare-room">Crear y unir</button>
+    </div>
+  </form>
+  <p>Unirse a una sala existente</p>
+  <form action="/join-room", method="get" id="join-room-form">
+    <div class="input-group">
+      <select class="form-select" id="room-name-selected" name="room_id">
+        <option value="not-valid-option" selected>Selecciona una sala...</option>
+        {{#each rooms}}
+        <option value="{{this.id}}">{{this.room_name}}</option>
+        {{/each}}
+      </select>
+      <input style="display: none;" type="text" id="join-room-user-id" name="user_id">
+      <button class="btn btn-outline-secondary" type="submit">Unirse</button>
+    </div>
+  </form>
+</div>
+
+<script src="/js/chat-dashboard.js"></script>

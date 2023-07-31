@@ -1,0 +1,25 @@
+<div>
+  <h1 class="text-center">Inicia Sesión</h1>
+  {{#if message}}
+  <div class="alert alert-danger">
+    <p>{{message}}</p>
+  </div>
+  {{/if}}
+  <form action="/signin" method="post" id="form">
+    <div class="mb-3">
+      <label for="usernameInput" class="form-label">Nombre de usuario</label>
+      <input type="text" class="form-control" id="usernameInput" name="username" placeholder="myusername">
+    </div>
+    <div class="mb-3">
+      <label for="passwdInput" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="passwdInput" name="passwd">
+    </div>
+    <div class="text-end">
+      {{!-- <button type="button" class="btn btn-secondary">Registrate</button> --}}
+      <a class="btn btn-secondary" href="/signup" role="button">Registrate</a>
+      <button type="submit" class="btn btn-primary">Iniciar</button>
+    </div>
+  </form>
+</div>
+
+<script src="/js/signin.js"></script>

@@ -1,0 +1,28 @@
+<div>
+  <h1 class="text-center">Registrate</h1>
+  {{#if message}}
+  <div class="alert alert-danger">
+    <p>{{message}}</p>
+  </div>
+  {{/if}}
+  <form action="/signup" method="post" id="form">
+    <div class="mb-3">
+      <label for="usernameInput" class="form-label">Nombre de usuario</label>
+      <input type="text" class="form-control" id="usernameInput" name="username" placeholder="myusername">
+    </div>
+    <div class="mb-3">
+      <label for="passwdInput" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="passwdInput" name="passwd">
+    </div>
+    <div class="mb-3">
+      <label for="passwdConfirmInput" class="form-label">Confirmar contraseña</label>
+      <input type="password" class="form-control" id="passwdConfirmInput">
+    </div>
+    <div class="text-end">
+      <a class="btn btn-secondary" href="/signin" role="button">Ya tengo cuenta</a>
+      <button type="submit" class="btn btn-primary">Crear e iniciar</button>
+    </div>
+  </form>
+</div>
+
+<script src="/js/signup.js"></script>
